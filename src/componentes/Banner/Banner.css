@@ -1,0 +1,11 @@
+.banner{
+    background-color:#6278F7;
+    text-align: center;
+}
+
+/* forma de manipular a img q esta dentro de uma div sem criar uma classe pra ela */
+
+.banner img{
+    max-width: 100%;
+}
+
