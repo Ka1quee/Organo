@@ -2,7 +2,7 @@ import "./Banner.css" // importamos o css dessa forma, colocamdo o caminho diret
 
 // dentro dos componentes sempre farenos essa mesma estrutura, "Function + nome da funcao"
 // letra minuscula
-function Banner() {
+export const Banner = () => {
     // e dentro da function colocamos o que esse componente irá retornar
 
     // sempre utilizamos return dentro da function
@@ -17,7 +17,7 @@ function Banner() {
 // e por fim o export default com o nome do componente
 // letra minuscula
 
-export default Banner
+
 
 // tudo isso se trata de JSX, a forma que o react le isso e transforma em elemento na pagina, misturando html com js
 
