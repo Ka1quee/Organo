@@ -7,17 +7,27 @@ import "./CampoTexto.css"
 // Apenas uma forma diferente de escrever aquela function
 
 // esta variavel ja armazena todas aquelas linhas de codigo
-const CampoTexto = ()=>{
-return (
-    // continuamos criando o form normalmente
+const CampoTexto = (props) => { //props sao as propriedades recebidas pelo componente
+    
+    // const placeholderModificada = `Sim ${props.placeholder}` template string 
+    
+    return (
 
-<div className="campo-texto">
-    <label>Nome</label>
-    <input placeholder="Digite seu nome"/>
-</div>
+        // continuamos criando o form normalmente
 
-)
+        <div className="campo-texto">
+            {/* ao inves de apenas colocarmos um texto, dessa vez estamos acessando a propriedade label do componente */}
+            {/* variavel sempre sentre chaves */}
+            <label>{props.label}</label>
+            <input placeholder={props.placeholder} />
+        </div>
+
+
+
+    )
+
 }
+
 
 
 
