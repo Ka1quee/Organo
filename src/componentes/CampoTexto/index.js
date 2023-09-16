@@ -19,7 +19,8 @@ const CampoTexto = (props) => { //props sao as propriedades recebidas pelo compo
             {/* ao inves de apenas colocarmos um texto, dessa vez estamos acessando a propriedade label do componente */}
             {/* variavel sempre sentre chaves */}
             <label>{props.label}</label>
-            <input placeholder={props.placeholder} />
+            {/* vai ser required caso o obrigatorio for true */}
+            <input required={props.obrigatorio} placeholder={props.placeholder} />
         </div>
 
 
