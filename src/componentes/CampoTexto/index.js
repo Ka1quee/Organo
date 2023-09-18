@@ -1,3 +1,4 @@
+import { useState } from "react"
 import "./CampoTexto.css"
 
 // Guardando uma função dentro de uma variavel constante
@@ -11,6 +12,11 @@ const CampoTexto = (props) => { //props sao as propriedades recebidas pelo compo
     
     // const placeholderModificada = `Sim ${props.placeholder}` template string 
     
+
+    const aoDigitado = (evento)=>{
+        props.aoAlterado(evento.target.value)
+    }
+    
     return (
 
         // continuamos criando o form normalmente
@@ -20,7 +26,8 @@ const CampoTexto = (props) => { //props sao as propriedades recebidas pelo compo
             {/* variavel sempre sentre chaves */}
             <label>{props.label}</label>
             {/* vai ser required caso o obrigatorio for true */}
-            <input required={props.obrigatorio} placeholder={props.placeholder} />
+            {/* OnChange serve para executar uma função sempre que esse campo for alterado*/}
+            <input value={props.valor} onChange={aoDigitado} required={props.obrigatorio} placeholder={props.placeholder} />
         </div>
 
 

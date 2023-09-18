@@ -1,3 +1,4 @@
+import { useState } from "react"
 import Botao from "../Botao"
 import CampoTexto from "../CampoTexto"
 import ListaSuspensa from "../ListaSuspensa"
@@ -5,22 +6,27 @@ import "./Formulario.css"
 
 const Formulario = () => {
 
-    // estamos guardando uma lista de strings dentro de uma variavel
-    const times = [ 
-        // lista de strings
+    const times = [
         'Programação',
-        'Front End',
+        'Front-End',
         'Data Science',
         'Devops',
         'UX e Design',
         'Mobile',
         'Inovação e Gestão'
-    ]   
+    ]
+
+    // estamos guardando uma lista de strings dentro de uma variavel
+    const [nome, setNome] = useState('')
+    const [cargo, setCargo] = useState('')
+    const [imagem, setImagem] = useState('')
+    const [time, setTime] = useState('')
+
 
     // criando uma funcao para quando submeter o formulario ele a execute
 
-    const aoSalvar = (evento)=>{
-        console.log("Form foi submetido");
+    const aoSalvar = (evento) => {
+        console.log("Form foi submetido => ", nome, cargo, imagem, time);
         evento.preventDefault()
     }
 
@@ -29,10 +35,34 @@ const Formulario = () => {
             {/* dizendo que ao submeter o formulario ele deverá executar essa função criada acima */}
             <form onSubmit={aoSalvar}> {/*É mais facil utilizar on submit na tag form do q direto no botao*/}
                 <h2>Preencha os dados para criar o card do colaborador</h2>
-                <CampoTexto obrigatorio={true} label="Nome" placeholder="Digite seu nome" />
-                <CampoTexto obrigatorio={true} label="Cargo" placeholder="Digite seu cargo" />
-                <CampoTexto label="Imagem" placeholder="Digite o endereço da imagem" />
-                <ListaSuspensa obrigatorio={true} itens={times} label="Times"/>
+                <CampoTexto
+                    obrigatorio={true}
+                    label="Nome"
+                    placeholder="Digite seu nome"
+                    valor={nome}
+                    aoAlterado={valor => setNome(valor)}
+                />
+
+                <CampoTexto obrigatorio={true}
+                    label="Cargo"
+                    placeholder="Digite seu cargo"
+                    valor={cargo}
+                    aoAlterado={valor => setCargo(valor)} />
+
+                <CampoTexto
+                    label="Imagem"
+                    placeholder="Digite o endereço da imagem"
+                    valor={imagem}
+                    aoAlterado={valor => setImagem(valor)}
+                />
+
+                <ListaSuspensa
+                    obrigatorio={true}
+                    itens={times}
+                    label="Times"
+                    valor={time}
+                    aoAlterado={valor => setTime(valor)}
+                />
                 {/* atraves do children é possivel alterar imagens e nome da tag */}
                 <Botao>Criar Card</Botao>
             </form>

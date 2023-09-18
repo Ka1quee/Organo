@@ -3,6 +3,7 @@ import "./Banner.css" // importamos o css dessa forma, colocamdo o caminho diret
 // dentro dos componentes sempre farenos essa mesma estrutura, "Function + nome da funcao"
 // letra minuscula
 export const Banner = () => {
+
     // e dentro da function colocamos o que esse componente irá retornar
 
     // sempre utilizamos return dentro da function
