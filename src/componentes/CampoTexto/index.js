@@ -1,4 +1,3 @@
-import { useState } from "react"
 import "./CampoTexto.css"
 
 // Guardando uma função dentro de uma variavel constante

@@ -4,7 +4,7 @@ import CampoTexto from "../CampoTexto"
 import ListaSuspensa from "../ListaSuspensa"
 import "./Formulario.css"
 
-const Formulario = () => {
+const Formulario = (props) => {
 
     const times = [
         'Programação',
@@ -16,7 +16,6 @@ const Formulario = () => {
         'Inovação e Gestão'
     ]
 
-    // estamos guardando uma lista de strings dentro de uma variavel
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
     const [imagem, setImagem] = useState('')
@@ -26,8 +25,13 @@ const Formulario = () => {
     // criando uma funcao para quando submeter o formulario ele a execute
 
     const aoSalvar = (evento) => {
-        console.log("Form foi submetido => ", nome, cargo, imagem, time);
         evento.preventDefault()
+        props.aoColaboradorCadastrado({
+            nome,
+            cargo,
+            imagem,
+            time
+        })
     }
 
     return (
